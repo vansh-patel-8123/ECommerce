@@ -1,0 +1,62 @@
+Routes
+
+    User Routes:
+    POST /api/users/register - User registration route.
+    POST /api/users/login - User login route.
+    GET /api/users/profile - Get user profile route.
+    PUT /api/users/profile - Update user profile route.
+    
+    Product Routes:
+    GET /api/products - Get all products route.
+    GET /api/products/:id - Get a specific product route.
+    POST /api/products - Create a new product route.
+    PUT /api/products/:id - Update a product route.
+    DELETE /api/products/:id - Delete a product route.
+    
+    Cart Routes:
+    GET /api/cart - Get user's cart route.
+    POST /api/cart - Add a product to the cart route.
+    PUT /api/cart/:id - Update a product in the cart route.
+    DELETE /api/cart/:id - Remove a product from the cart route.
+    
+    Order Routes:
+    GET /api/orders - Get all orders route.
+    GET /api/orders/:id - Get a specific order route.
+    POST /api/orders - Create a new order route.
+    PUT /api/orders/:id - Update an order route.
+    DELETE /api/orders/:id - Delete an order route.
+
+
+Controllers:
+
+    User Controllers:
+    registerUser - Handles user registration.
+    loginUser - Handles user login.
+    getUserProfile - Retrieves user profile information.
+    updateUserProfile - Updates user profile information.
+   
+    Product Controllers:
+    getAllProducts - Retrieves all products.
+    getProductById - Retrieves a specific product by ID.
+    createProduct - Creates a new product.
+    updateProduct - Updates a product by ID.
+    deleteProduct - Deletes a product by ID.
+    
+    Cart Controllers:
+    getUserCart - Retrieves the user's cart.
+    addToCart - Adds a product to the user's cart.
+    updateCartItem - Updates a product in the user's cart.
+    removeFromCart - Removes a product from the user's cart.
+    
+    Order Controllers:
+    getAllOrders - Retrieves all orders.
+    getOrderById - Retrieves a specific order by ID.
+    createOrder - Creates a new order.
+    updateOrder - Updates an order by ID.
+    deleteOrder - Deletes an order by ID.
+
+
+Models 
+    1. User
+    2. Order
+    3. product
