@@ -11,7 +11,7 @@ const registerUser = async (req, res) => {
         if (exitingUser) {
             return res.status(400).json({ message: 'User already exists' });
         }
-        
+
         // Hash the password using bcrypt
         const salt = await bcrypt.genSalt(10);
         const hashedPassword = await bcrypt.hash(password, salt);
@@ -50,7 +50,8 @@ const loginUser = async (req, res) => {
         const { email, password } = req.body;
 
         // check if user is exit
-        const user = User.findOne({ email: email })
+        const user = await User.findOne({ email: email })
+
         // user don't exits
         if (!user) {
             return res.status(400).json({ message: 'Invalid credentials' });
@@ -63,14 +64,13 @@ const loginUser = async (req, res) => {
             return res.status(400).json({ message: 'Invalid credentials' });
         }
 
-
         // Generate JWT token
         const payload = {
             user: {
                 id: user.id,
             },
         };
-        const token = jwt.sign(payload, keys.jwtSecret, { expiresIn: '1h' });
+        const token = jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: '1h' });
 
         // Return the token and user details in the response
         res.json({ token, user });
