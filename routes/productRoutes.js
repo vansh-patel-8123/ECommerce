@@ -1,9 +1,11 @@
+const authMiddlware = require('../middlewares/authMiddlware');
 const router = require('express').Router();
+const productCtrl = require('../controllers/productCtrl');
 
-router.get('/', getAllProducts)
-router.get('/:id', getSpecificProduct)
-router.post('/', createNewProduct)
-router.put('/:id', UpdateProduct)
-router.delete('/:id', deleteProduct)
+router.get('/',authMiddlware, productCtrl.getAllProducts)
+router.get('/:id',authMiddlware, productCtrl.getSpecificProduct)
+router.post('/',authMiddlware, productCtrl.createNewProduct)
+router.put('/:id',authMiddlware, productCtrl.UpdateProduct)
+router.delete('/:id',authMiddlware, productCtrl.deleteProduct)
 
 module.exports = router;
